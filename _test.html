@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>pending</title>
+<script>
+  window.__errors = [];
+  window.onerror = function (msg, src, line, col, err) {
+    window.__errors.push(String(msg) + ' @line ' + line + ':' + col);
+    document.title = 'ONERR ' + msg;
+  };
+</script>
+<script src="stories-data.js"></script>
+<script>
+  try {
+    document.title = 'N=' + (window.MILKY_DATA && window.MILKY_DATA.ideas && window.MILKY_DATA.ideas.length);
+  } catch (e) {
+    document.title = 'ERR ' + e.message;
+  }
+</script>

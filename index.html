@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Milky — 100 Story Archive | Milky YouTube Shorts</title>
+  <meta name="description" content="The full archive of Milky's YouTube Shorts: 100 ready-to-shoot stories, 300 shots. Search the catalogue, filter by category, and open any story for its visual, Hindi dialogue, on-screen text and sound.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Mukta:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="mk-skip" href="#stories">Skip to the stories</a>
+
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-md sticky-top mk-nav" aria-label="Main">
+    <div class="container">
+      <a class="navbar-brand mk-brand" href="#top">
+        <svg class="mk-brand__paw" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7.5 9.5c1.1 0 2-1.1 2-2.5S8.6 4.5 7.5 4.5s-2 1.1-2 2.5 0.9 2.5 2 2.5Zm9 0c1.1 0 2-1.1 2-2.5s-.9-2.5-2-2.5-2 1.1-2 2.5.9 2.5 2 2.5ZM4.5 14c1.1 0 2-1.1 2-2.5S5.6 9 4.5 9s-2 1.1-2 2.5.9 2.5 2 2.5Zm15 0c1.1 0 2-1.1 2-2.5S20.6 9 19.5 9s-2 1.1-2 2.5.9 2.5 2 2.5ZM12 11c-2.6 0-4.7 2.1-4.7 4.5 0 1.7 1.2 3 2.9 3 .8 0 1.2-.4 1.8-.4s1 .4 1.8.4c1.7 0 2.9-1.3 2.9-3C16.7 13.1 14.6 11 12 11Z"/>
+        </svg>
+        <span>MILKY</span>
+        <span class="mk-brand__sub">Archive</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mkNav"
+              aria-controls="mkNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mkNav">
+        <ul class="navbar-nav ms-auto align-items-md-center gap-md-1">
+          <li class="nav-item"><a class="nav-link" href="#stories">Stories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#guide">Shoot Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="#prompt">AI Prompt</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tags">Hashtags</a></li>
+          <li class="nav-item"><a class="btn btn-sm mk-btn ms-md-2" href="https://www.youtube.com/@chamanrastogi" target="_blank" rel="noopener">Watch the channel</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- Hero -->
+  <header class="mk-hero">
+    <div class="container">
+      <div class="row align-items-center g-4 g-lg-5">
+        <div class="col-lg-6">
+          <p class="mk-eyebrow">YouTube Shorts · Hindi Family Comedy · 100 Stories</p>
+          <h1 class="mk-title">
+            <span class="mk-title__word">MILKY</span>
+            <span class="mk-title__tag">The Real Boss of the House</span>
+          </h1>
+          <p class="mk-lede">
+            Every story is a 30-second vertical Short built from three 10-second shots.
+            Each one is scripted down to the visual, the Hindi dialogue, the on-screen
+            text and the sound. Open any story and start filming.
+          </p>
+          <ul class="mk-specs">
+            <li><span>Stories</span>100</li>
+            <li><span>Shots</span>300</li>
+            <li><span>Runtime</span>30 sec</li>
+            <li><span>Frame</span>9:16 vertical</li>
+            <li><span>Dialogue</span>Hindi</li>
+          </ul>
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <a class="btn mk-btn" href="#stories">Browse all 100 stories</a>
+            <a class="btn mk-btn mk-btn--ghost" href="#prompt">Copy the AI prompt</a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="mk-wall" aria-hidden="true">
+            <div class="mk-wall__rows" id="mkWall"></div>
+          </div>
+          <p class="mk-wall__hint">A contact sheet of the archive — one vertical frame per story, with its on-screen caption baked in.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Stories -->
+    <section id="stories" class="mk-section" aria-labelledby="stories-title">
+      <div class="container">
+        <div class="mk-section__head">
+          <h2 id="stories-title" class="mk-h2">The Story Archive <span class="mk-count" id="mkTotal">100 stories</span></h2>
+          <p class="mk-section__sub">Filter by category or search a title. Open a story to read its three shots shot by shot.</p>
+        </div>
+
+        <div class="mk-toolbar">
+          <div class="mk-search">
+            <svg class="mk-search__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M10 4a6 6 0 1 0 3.6 10.8l4.3 4.3 1.4-1.4-4.3-4.3A6 6 0 0 0 10 4Zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/>
+            </svg>
+            <label class="visually-hidden" for="mkSearch">Search stories or characters</label>
+            <input id="mkSearch" class="mk-search__input" type="search" autocomplete="off"
+                   placeholder="Search stories or characters…">
+          </div>
+          <div class="mk-filters" id="mkFilters" role="group" aria-label="Filter by category"></div>
+        </div>
+
+        <p class="mk-results" id="mkResults" role="status" aria-live="polite"></p>
+
+        <div class="mk-grid" id="mkGrid"></div>
+
+        <div class="mk-empty" id="mkEmpty" hidden>
+          <p class="mk-empty__title">No stories match that search.</p>
+          <p class="mk-empty__body">Try another word, or clear the filters to see all 100 stories.</p>
+          <button class="btn mk-btn mk-btn--ghost" type="button" data-clear>Clear filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shoot guide -->
+    <section id="guide" class="mk-section mk-section--alt" aria-labelledby="guide-title">
+      <div class="container">
+        <div class="mk-section__head">
+          <h2 id="guide-title" class="mk-h2">Shoot Guide</h2>
+          <p class="mk-section__sub">Keep one look and tone across every story in the archive. The Hindi script itself stays in Hindi.</p>
+        </div>
+        <div class="accordion mk-accordion" id="mkGuide">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#g1"
+                      aria-expanded="true" aria-controls="g1">Visual &amp; look</button>
+            </h3>
+            <div id="g1" class="accordion-collapse collapse show" data-bs-parent="#mkGuide">
+              <div class="accordion-body">Realistic, cinematic look. Open most stories with a light-flash effect and a slow camera zoom-in on Milky's expression.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g2"
+                      aria-expanded="false" aria-controls="g2">Sound &amp; music</button>
+            </h3>
+            <div id="g2" class="accordion-collapse collapse" data-bs-parent="#mkGuide">
+              <div class="accordion-body">Natural Hindi lip-sync with a Hindi comedy background track throughout. Keep the mix clean and fast.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g3"
+                      aria-expanded="false" aria-controls="g3">Acting &amp; edit</button>
+            </h3>
+            <div id="g3" class="accordion-collapse collapse" data-bs-parent="#mkGuide">
+              <div class="accordion-body">Milky carries the comedy through body language and reaction, not long lines. Vertical 9:16 at 1080×1920. No emojis on screen.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI prompt -->
+    <section id="prompt" class="mk-section" aria-labelledby="prompt-title">
+      <div class="container">
+        <div class="mk-section__head">
+          <h2 id="prompt-title" class="mk-h2">AI Video Prompt</h2>
+          <p class="mk-section__sub">Every story carries its own prompt. Copy it from the story card, or start from the shared recipe below.</p>
+        </div>
+        <div class="mk-prompt">
+          <div class="mk-prompt__head">
+            <span class="mk-prompt__badge">Shared recipe</span>
+            <button class="btn mk-btn mk-btn--ghost mk-copy" type="button" data-copy="mkSharedPrompt">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M9 3h9a2 2 0 0 1 2 2v11h-2V5H9V3ZM6 7h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/>
+              </svg>
+              Copy prompt
+            </button>
+          </div>
+          <p id="mkSharedPrompt" class="mk-prompt__text" lang="hi" data-shared-prompt>Loading the shared recipe…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tags -->
+    <section id="tags" class="mk-section mk-section--alt" aria-labelledby="tags-title">
+      <div class="container">
+        <div class="mk-section__head">
+          <h2 id="tags-title" class="mk-h2">Hashtags</h2>
+          <p class="mk-section__sub">Use these in the description (no emojis).</p>
+        </div>
+        <ul class="mk-tags">
+          <li>#Milky</li>
+          <li>#YouTubeShorts</li>
+          <li>#FunnyDog</li>
+          <li>#CuteDog</li>
+          <li>#PetLife</li>
+          <li>#IndianFamilyHumor</li>
+          <li>#DogShorts</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mk-footer">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <p class="mb-0">Milky Shorts · @chamanrastogi</p>
+      <a class="mk-footer__link" href="https://www.youtube.com/@chamanrastogi" target="_blank" rel="noopener">youtube.com/@chamanrastogi</a>
+    </div>
+  </footer>
+
+  <script src="stories-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    function num(v, d) { return typeof v === 'number' && v > 0 ? v : d; }
+
+    var DATA  = window.MILKY_DATA || { ideas: [], format: {} };
+    var IDEAS = Array.isArray(DATA.ideas) ? DATA.ideas : [];
+    var FMT   = DATA.format || {};
+    var SCENE_DUR = num(FMT.scene_duration_seconds, 10);
+
+    var gridEl    = document.getElementById('mkGrid');
+    var filtersEl = document.getElementById('mkFilters');
+    var resultsEl = document.getElementById('mkResults');
+    var emptyEl   = document.getElementById('mkEmpty');
+    var searchEl  = document.getElementById('mkSearch');
+    var totalEl   = document.getElementById('mkTotal');
+    var wallEl    = document.getElementById('mkWall');
+
+    var state = { cat: 'all', query: '' };
+
+    function esc(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+    function shotTime(i) {
+      var a = i * SCENE_DUR, b = a + SCENE_DUR;
+      return a + '–' + b + 's';
+    }
+
+    // ---- The 9:16 "shot frame" (the archive's repeating unit) --------------
+    // A real dog photo stands in for the shot; if it fails the gradient shows.
+    function frameImage(seed, w, h) {
+      return 'https://loremflickr.com/' + w + '/' + h + '/dog,puppy?lock=' + (seed + 1);
+    }
+    function frameHTML(scene, i, label, seed) {
+      var cap = scene && scene.screen_text ? scene.screen_text : '';
+      return '<span class="mk-frame" role="img" aria-label="' + esc(label) + '">' +
+               '<span class="mk-frame__bar">' +
+                 '<span class="mk-frame__no">Shot ' + (i + 1) + '</span>' +
+                 '<span class="mk-frame__tc">' + shotTime(i) + '</span>' +
+               '</span>' +
+               '<span class="mk-frame__stage">' +
+                 '<img class="mk-frame__img" src="' + frameImage(seed, 480, 854) + '" alt="" ' +
+                     'loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' +
+                 '<span class="mk-frame__caption" lang="hi">' + esc(cap) + '</span>' +
+               '</span>' +
+             '</span>';
+    }
+
+    // A shot as plain text, for the per-shot "Copy shot" button
+    function shotText(idea, scene, i) {
+      var lines = [];
+      lines.push(idea.title + ' - Shot ' + (i + 1) + ' (' + shotTime(i) + ')');
+      lines.push('');
+      lines.push('On-screen text: ' + (scene.screen_text || ''));
+      lines.push('Visual: ' + (scene.visual || ''));
+      lines.push('Dialogue:');
+      (scene.dialogues || []).forEach(function (d) { lines.push('  ' + d.speaker + ': ' + d.line); });
+      lines.push('Sound: ' + (scene.background_sound || ''));
+      return lines.join('\n');
+    }
+
+    // ---- Story card --------------------------------------------------------
+    function sceneHTML(scene, i, story) {
+      var seed = story.id * 3 + i;
+      var shotId = 'mk-shot-' + story.id + '-' + (i + 1);
+      var out = '<div class="mk-shot">';
+      out += '<div class="mk-shot__frame">' +
+               frameHTML(scene, i, 'Shot ' + (i + 1) + ' of ' + story.title + ': ' + scene.screen_text, seed) +
+             '</div>';
+      out += '<div class="mk-shot__body">';
+      out += '<div class="mk-shot__head">';
+      out += '<h4 class="mk-shot__title">Shot ' + (i + 1) + ' <span class="mk-shot__tc">· ' + shotTime(i) + '</span></h4>';
+      out += '<button class="btn mk-btn mk-btn--ghost mk-copy mk-copy--sm" type="button" data-copy="' + shotId + '">Copy shot</button>';
+      out += '</div>';
+      out += '<pre class="mk-copytext" id="' + shotId + '" hidden>' + esc(shotText(story, scene, i)) + '</pre>';
+      out += '<p class="mk-label">Visual</p>';
+      out += '<p class="mk-shot__visual" lang="hi">' + esc(scene.visual) + '</p>';
+      out += '<p class="mk-label">Dialogue</p>';
+      out += '<ul class="mk-lines">';
+      (scene.dialogues || []).forEach(function (d) {
+        out += '<li><span class="mk-who" lang="hi">' + esc(d.speaker) + '</span>' +
+                     '<span class="mk-say" lang="hi">' + esc(d.line) + '</span></li>';
+      });
+      out += '</ul>';
+      out += '<p class="mk-label">Sound</p>';
+      out += '<p class="mk-sfx" lang="hi">' + esc(scene.background_sound) + '</p>';
+      out += '</div></div>';
+      return out;
+    }
+
+    function storyHTML(idea) {
+      var scenes = idea.scenes || [];
+      var s0 = scenes[0] || { screen_text: '' };
+      var chars = (idea.characters || []).join(', ');
+      var id = idea.id;
+
+      var out = '<article class="mk-story" data-id="' + id + '">';
+      out += '<button class="mk-story__summary" type="button" aria-expanded="false" aria-controls="mk-panel-' + id + '">';
+      out += frameHTML(s0, 0, 'Story frame for ' + idea.title + ': ' + s0.screen_text, id * 3);
+      out += '<span class="mk-story__info">';
+      out += '<span class="mk-chip">' + esc(idea.category) + '</span>';
+      out += '<span class="mk-story__title" lang="hi">' + esc(idea.title) + '</span>';
+      out += '<span class="mk-story__meta">' + (idea.scene_count || scenes.length || 3) + ' shots · ' +
+               (idea.duration_seconds || 30) + 's</span>';
+      out += '<span class="mk-story__chars">' + esc(chars) + '</span>';
+      out += '</span>';
+      out += '<span class="mk-story__cue">' +
+               '<span class="mk-cue-open">Open story</span>' +
+               '<span class="mk-cue-close">Close story</span>' +
+             '</span>';
+      out += '</button>';
+
+      out += '<div class="mk-story__panel" id="mk-panel-' + id + '" hidden>';
+      out += '<div class="mk-scenes">';
+      scenes.forEach(function (sc, i) { out += sceneHTML(sc, i, idea); });
+      out += '</div>';
+      if (idea.video_instructions) {
+        out += '<div class="mk-story__prompt">';
+        out += '<div class="mk-story__prompt-head">';
+        out += '<p class="mk-label">AI video prompt</p>';
+        out += '<button class="btn mk-btn mk-btn--ghost mk-copy" type="button" data-copy="mk-prompt-' + id + '">Copy prompt</button>';
+        out += '</div>';
+        out += '<p class="mk-prompt__text" id="mk-prompt-' + id + '" lang="hi">' + esc(idea.video_instructions) + '</p>';
+        out += '</div>';
+      }
+      out += '</div>';
+      out += '</article>';
+      return out;
+    }
+
+    // ---- Filters -----------------------------------------------------------
+    function renderFilters() {
+      var counts = {};
+      IDEAS.forEach(function (it) { counts[it.category] = (counts[it.category] || 0) + 1; });
+      var cats = Object.keys(counts).sort(function (a, b) {
+        return counts[b] - counts[a] || a.localeCompare(b);
+      });
+      var html = chip('all', 'All', IDEAS.length, true);
+      cats.forEach(function (c) { html += chip(c, c, counts[c], false); });
+      filtersEl.innerHTML = html;
+    }
+    function chip(value, label, n, active) {
+      return '<button class="mk-fchip' + (active ? ' is-active' : '') + '" type="button" ' +
+             'data-cat="' + esc(value) + '" aria-pressed="' + (active ? 'true' : 'false') + '">' +
+             esc(label) + ' <span class="mk-fchip__n">' + n + '</span></button>';
+    }
+
+    // ---- Apply search + category filter ------------------------------------
+    function apply() {
+      var q = state.query.trim().toLowerCase();
+      var html = '';
+      var shown = 0;
+
+      IDEAS.forEach(function (it) {
+        if (state.cat !== 'all' && it.category !== state.cat) return;
+        if (q) {
+          var hay = (it.title + ' ' + (it.characters || []).join(' ') + ' ' + it.category).toLowerCase();
+          if (hay.indexOf(q) === -1) return;
+        }
+        html += storyHTML(it);
+        shown++;
+      });
+
+      gridEl.innerHTML = html;
+      emptyEl.hidden = shown !== 0;
+
+      var noun = shown === 1 ? 'story' : 'stories';
+      resultsEl.textContent = 'Showing ' + shown + ' of ' + IDEAS.length + ' ' + noun +
+        (state.cat === 'all' ? '' : ' in ' + state.cat) + (q ? ' matching “' + state.query.trim() + '”' : '') + '.';
+    }
+
+    // ---- Hero contact sheet -------------------------------------------------
+    function renderWall() {
+      var picks = IDEAS.slice(0, 14);
+      function row(picks, dir) {
+        var items = picks.map(function (it) {
+          var s0 = (it.scenes && it.scenes[0]) || { screen_text: '' };
+          return '<span class="mk-mini">' +
+                   '<img class="mk-mini__img" src="' + frameImage(it.id, 240, 427) + '" alt="" ' +
+                       'loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' +
+                   '<span class="mk-mini__cap" lang="hi">' + esc(s0.screen_text) + '</span>' +
+                 '</span>';
+        }).join('');
+        return '<div class="mk-wall__row ' + dir + '"><div class="mk-wall__track">' + items + items + '</div></div>';
+      }
+      wallEl.innerHTML = row(picks.slice(0, 7), 'is-left') + row(picks.slice(7, 14), 'is-right');
+    }
+
+    // ---- Shared prompt ------------------------------------------------------
+    function renderSharedPrompt() {
+      var el = document.querySelector('[data-shared-prompt]');
+      if (!el) return;
+      var f = FMT;
+      var recipe = [
+        'Vertical 9:16 (' + (f.aspect_ratio || '9:16') + '), ' + (f.duration_seconds || 30) + '-second YouTube Short,',
+        (f.scene_count || 3) + ' shots of ' + (f.scene_duration_seconds || 10) + ' seconds each.',
+        (f.style || 'Hindi family comedy') + '. Realistic cinematic look, natural Hindi lip-sync,',
+        'expressive reactions, one light-flash opener, Hindi on-screen text in every shot,',
+        'Hindi cinematic comedy background sound. No emojis.'
+      ].join(' ');
+      var first = IDEAS[0] && IDEAS[0].video_instructions ? IDEAS[0].video_instructions : '';
+      el.textContent = recipe + (first ? ' ' + first : '');
+    }
+
+    // ---- Copy + disclosure + filter events ---------------------------------
+    document.addEventListener('click', function (e) {
+      var copy = e.target.closest('[data-copy]');
+      if (copy) {
+        var target = document.getElementById(copy.getAttribute('data-copy'));
+        if (!target) return;
+        var text = target.textContent.trim();
+        var label = copy.textContent;
+        var finish = function (msg) {
+          copy.textContent = msg;
+          copy.disabled = true;
+          window.setTimeout(function () { copy.textContent = label; copy.disabled = false; }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { finish('Copied'); },
+                                                    function () { finish('Copy failed'); });
+        } else {
+          finish('Copied');
+        }
+        return;
+      }
+
+      var fchip = e.target.closest('.mk-fchip');
+      if (fchip) {
+        state.cat = fchip.getAttribute('data-cat');
+        Array.prototype.forEach.call(filtersEl.querySelectorAll('.mk-fchip'), function (b) {
+          var on = b === fchip;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        apply();
+        return;
+      }
+
+      var clear = e.target.closest('[data-clear]');
+      if (clear) {
+        state.cat = 'all';
+        state.query = '';
+        if (searchEl) searchEl.value = '';
+        Array.prototype.forEach.call(filtersEl.querySelectorAll('.mk-fchip'), function (b) {
+          var on = b.getAttribute('data-cat') === 'all';
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        apply();
+        return;
+      }
+
+      var summary = e.target.closest('.mk-story__summary');
+      if (summary) {
+        var panel = document.getElementById(summary.getAttribute('aria-controls'));
+        var open = summary.getAttribute('aria-expanded') === 'true';
+        summary.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (panel) panel.hidden = open;
+        var card = summary.closest('.mk-story');
+        if (card) card.classList.toggle('is-open', !open);
+      }
+    });
+
+    if (searchEl) {
+      searchEl.addEventListener('input', function () {
+        state.query = searchEl.value;
+        apply();
+      });
+    }
+
+    // ---- Boot ---------------------------------------------------------------
+    if (totalEl) totalEl.textContent = IDEAS.length + ' stories';
+    renderFilters();
+    renderWall();
+    renderSharedPrompt();
+    apply();
+  })();
+  </script>
+</body>
+</html>
