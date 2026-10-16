@@ -3,489 +3,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Milky — 100 Story Archive | Milky YouTube Shorts</title>
-  <meta name="description" content="The full archive of Milky's YouTube Shorts: 100 ready-to-shoot stories, 300 shots. Search the catalogue, filter by category, and open any story for its visual, Hindi dialogue, on-screen text and sound.">
-
+  <title>Milky Studio — Daily Planner</title>
+  <meta name="description" content="Plan, save, and move Milky's YouTube Shorts ideas from backlog to publish.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Mukta:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Mukta:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="mk-skip" href="#stories">Skip to the stories</a>
+  <a class="skip-link" href="#app-main">Skip to planner</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Studio navigation">
+      <div class="brand"><span class="brand-mark">M</span><span><b>MILKY</b><small>creator studio</small></span></div>
+      <div class="sidebar-label">Workspace</div>
+      <nav class="side-nav">
+        <button class="nav-item is-active" data-view="today"><span class="nav-icon">◷</span>Today <b id="navTodayCount">0</b></button>
+        <button class="nav-item" data-view="ideas"><span class="nav-icon">▦</span>All ideas <b>1,000</b></button>
+        <button class="nav-item" data-view="saved"><span class="nav-icon">☆</span>Saved <b id="navSavedCount">0</b></button>
+        <button class="nav-item" data-view="published"><span class="nav-icon">↗</span>Published <b id="navPublishedCount">0</b></button>
+      </nav>
+      <div class="sidebar-bottom"><div class="sidebar-label">Format</div><div class="format-card"><strong>30 sec</strong><span>Vertical YouTube Short</span><i>9:16</i></div><a class="channel-link" href="https://www.youtube.com/@chamanrastogi" target="_blank" rel="noopener">Open channel <span>↗</span></a></div>
+    </aside>
 
-  <!-- Nav -->
-  <nav class="navbar navbar-expand-md sticky-top mk-nav" aria-label="Main">
-    <div class="container">
-      <a class="navbar-brand mk-brand" href="#top">
-        <svg class="mk-brand__paw" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M7.5 9.5c1.1 0 2-1.1 2-2.5S8.6 4.5 7.5 4.5s-2 1.1-2 2.5 0.9 2.5 2 2.5Zm9 0c1.1 0 2-1.1 2-2.5s-.9-2.5-2-2.5-2 1.1-2 2.5.9 2.5 2 2.5ZM4.5 14c1.1 0 2-1.1 2-2.5S5.6 9 4.5 9s-2 1.1-2 2.5.9 2.5 2 2.5Zm15 0c1.1 0 2-1.1 2-2.5S20.6 9 19.5 9s-2 1.1-2 2.5.9 2.5 2 2.5ZM12 11c-2.6 0-4.7 2.1-4.7 4.5 0 1.7 1.2 3 2.9 3 .8 0 1.2-.4 1.8-.4s1 .4 1.8.4c1.7 0 2.9-1.3 2.9-3C16.7 13.1 14.6 11 12 11Z"/>
-        </svg>
-        <span>MILKY</span>
-        <span class="mk-brand__sub">Archive</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mkNav"
-              aria-controls="mkNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mkNav">
-        <ul class="navbar-nav ms-auto align-items-md-center gap-md-1">
-          <li class="nav-item"><a class="nav-link" href="#stories">Stories</a></li>
-          <li class="nav-item"><a class="nav-link" href="#guide">Shoot Guide</a></li>
-          <li class="nav-item"><a class="nav-link" href="#prompt">AI Prompt</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tags">Hashtags</a></li>
-          <li class="nav-item"><a class="btn btn-sm mk-btn ms-md-2" href="https://www.youtube.com/@chamanrastogi" target="_blank" rel="noopener">Watch the channel</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <main id="app-main" class="main-content">
+      <header class="topbar"><div class="mobile-brand"><span class="brand-mark">M</span> MILKY</div><div class="topbar-right"><span class="sync-status"><i></i> Local workspace</span><button class="top-icon" type="button" id="focusSearch" aria-label="Focus search">⌕</button><button class="avatar" type="button" aria-label="Creator profile">CR</button></div></header>
+      <section class="page-heading"><div><p class="eyebrow" id="todayDate">MONDAY, OCTOBER 14</p><h1 id="pageTitle">Plan today’s stories<span>.</span></h1><p id="pageSubtitle">Choose the ideas that deserve a shoot.</p></div><button class="primary-button" id="addRandom" type="button">+ Pick a story</button></section>
 
-  <span id="top"></span>
+      <section class="planner-strip" aria-labelledby="queue-title"><div class="section-heading"><div><p class="eyebrow">Your queue</p><h2 id="queue-title">Today’s lineup</h2></div><span class="queue-count" id="queueCount">0 / 3 slots</span></div><div id="queue" class="queue-grid"></div></section>
 
-  <!-- Hero -->
-  <header class="mk-hero">
-    <div class="container">
-      <div class="row align-items-center g-4 g-lg-5">
-        <div class="col-lg-6">
-          <p class="mk-eyebrow">YouTube Shorts · Hindi Family Comedy · 100 Stories</p>
-          <h1 class="mk-title">
-            <span class="mk-title__word">MILKY</span>
-            <span class="mk-title__tag">The Real Boss of the House</span>
-          </h1>
-          <p class="mk-lede">
-            Every story is a 30-second vertical Short built from three 10-second shots.
-            Each one is scripted down to the visual, the Hindi dialogue, the on-screen
-            text and the sound. Open any story and start filming.
-          </p>
-          <ul class="mk-specs">
-            <li><span>Stories</span>100</li>
-            <li><span>Shots</span>300</li>
-            <li><span>Runtime</span>30 sec</li>
-            <li><span>Frame</span>9:16 vertical</li>
-            <li><span>Dialogue</span>Hindi</li>
-          </ul>
-          <div class="d-flex flex-wrap gap-2 mt-4">
-            <a class="btn mk-btn" href="#stories">Browse all 100 stories</a>
-            <a class="btn mk-btn mk-btn--ghost" href="#prompt">Copy the AI prompt</a>
-          </div>
-        </div>
+      <section class="stats-row" aria-label="Studio stats"><div class="stat-card"><span class="stat-icon amber">✦</span><div><strong id="statIdeas">1,000</strong><small>Total ideas</small></div></div><div class="stat-card"><span class="stat-icon violet">☆</span><div><strong id="statSaved">0</strong><small>Saved for later</small></div></div><div class="stat-card"><span class="stat-icon blue">↗</span><div><strong id="statPublished">0</strong><small>Published</small></div></div><div class="stat-card stat-card--accent"><div><strong id="statProgress">0%</strong><small>Pipeline progress</small></div><div class="progress"><i id="progressBar"></i></div></div></section>
 
-        <div class="col-lg-6">
-          <div class="mk-wall" aria-hidden="true">
-            <div class="mk-wall__rows" id="mkWall"></div>
-          </div>
-          <p class="mk-wall__hint">A contact sheet of the archive — one vertical frame per story, with its on-screen caption baked in.</p>
-        </div>
-      </div>
-    </div>
-  </header>
+      <section class="library-section" aria-labelledby="library-title"><div class="section-heading section-heading--library"><div><p class="eyebrow">Idea bank</p><h2 id="library-title">All story ideas</h2></div><span id="resultCount" class="result-count" role="status" aria-live="polite"></span></div><div class="toolbar"><label class="search-box"><span>⌕</span><span class="visually-hidden">Search ideas</span><input id="searchInput" type="search" placeholder="Search title, premise, punchline…" autocomplete="off"></label><select id="categoryFilter" aria-label="Filter by category"><option value="all">All categories</option></select><select id="statusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option value="idea">Idea</option><option value="selected">Selected</option><option value="scripting">Scripting</option><option value="filmed">Filmed</option><option value="published">Published</option></select><button class="filter-reset" id="resetFilters" type="button">Reset</button></div><div id="ideaGrid" class="idea-grid"></div><div id="emptyState" class="empty-state" hidden><span>⌕</span><h3>No ideas match</h3><p>Try a different search or clear your filters.</p><button class="secondary-button" type="button" id="emptyReset">Clear filters</button></div><nav id="pagination" class="pagination" aria-label="Idea pages"></nav></section>
+    </main>
+  </div>
+  <nav class="mobile-nav" aria-label="Mobile navigation"><button class="is-active" data-view="today"><span>◷</span>Today</button><button data-view="ideas"><span>▦</span>Ideas</button><button data-view="saved"><span>☆</span>Saved</button><button data-view="published"><span>↗</span>Published</button></nav>
 
-  <main>
-    <!-- Stories -->
-    <section id="stories" class="mk-section" aria-labelledby="stories-title">
-      <div class="container">
-        <div class="mk-section__head">
-          <h2 id="stories-title" class="mk-h2">The Story Archive <span class="mk-count" id="mkTotal">100 stories</span></h2>
-          <p class="mk-section__sub">Filter by category or search a title. Open a story to read its three shots shot by shot.</p>
-        </div>
+  <div id="drawer" class="drawer-layer" hidden><div class="drawer-backdrop" data-close-drawer></div><aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle"><div class="drawer-top"><span class="eyebrow">Idea details</span><button class="close-button" type="button" data-close-drawer aria-label="Close details">×</button></div><div id="drawerContent"></div></aside></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-        <div class="mk-toolbar">
-          <div class="mk-search">
-            <svg class="mk-search__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M10 4a6 6 0 1 0 3.6 10.8l4.3 4.3 1.4-1.4-4.3-4.3A6 6 0 0 0 10 4Zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/>
-            </svg>
-            <label class="visually-hidden" for="mkSearch">Search stories or characters</label>
-            <input id="mkSearch" class="mk-search__input" type="search" autocomplete="off"
-                   placeholder="Search stories or characters…">
-          </div>
-          <div class="mk-filters" id="mkFilters" role="group" aria-label="Filter by category"></div>
-        </div>
-
-        <p class="mk-results" id="mkResults" role="status" aria-live="polite"></p>
-
-        <div class="mk-grid" id="mkGrid"></div>
-
-        <div class="mk-empty" id="mkEmpty" hidden>
-          <p class="mk-empty__title">No stories match that search.</p>
-          <p class="mk-empty__body">Try another word, or clear the filters to see all 100 stories.</p>
-          <button class="btn mk-btn mk-btn--ghost" type="button" data-clear>Clear filters</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Shoot guide -->
-    <section id="guide" class="mk-section mk-section--alt" aria-labelledby="guide-title">
-      <div class="container">
-        <div class="mk-section__head">
-          <h2 id="guide-title" class="mk-h2">Shoot Guide</h2>
-          <p class="mk-section__sub">Keep one look and tone across every story in the archive. The Hindi script itself stays in Hindi.</p>
-        </div>
-        <div class="accordion mk-accordion" id="mkGuide">
-          <div class="accordion-item">
-            <h3 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#g1"
-                      aria-expanded="true" aria-controls="g1">Visual &amp; look</button>
-            </h3>
-            <div id="g1" class="accordion-collapse collapse show" data-bs-parent="#mkGuide">
-              <div class="accordion-body">Realistic, cinematic look. Open most stories with a light-flash effect and a slow camera zoom-in on Milky's expression.</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g2"
-                      aria-expanded="false" aria-controls="g2">Sound &amp; music</button>
-            </h3>
-            <div id="g2" class="accordion-collapse collapse" data-bs-parent="#mkGuide">
-              <div class="accordion-body">Natural Hindi lip-sync with a Hindi comedy background track throughout. Keep the mix clean and fast.</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g3"
-                      aria-expanded="false" aria-controls="g3">Acting &amp; edit</button>
-            </h3>
-            <div id="g3" class="accordion-collapse collapse" data-bs-parent="#mkGuide">
-              <div class="accordion-body">Milky carries the comedy through body language and reaction, not long lines. Vertical 9:16 at 1080×1920. No emojis on screen.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AI prompt -->
-    <section id="prompt" class="mk-section" aria-labelledby="prompt-title">
-      <div class="container">
-        <div class="mk-section__head">
-          <h2 id="prompt-title" class="mk-h2">AI Video Prompt</h2>
-          <p class="mk-section__sub">Every story carries its own prompt. Copy it from the story card, or start from the shared recipe below.</p>
-        </div>
-        <div class="mk-prompt">
-          <div class="mk-prompt__head">
-            <span class="mk-prompt__badge">Shared recipe</span>
-            <button class="btn mk-btn mk-btn--ghost mk-copy" type="button" data-copy="mkSharedPrompt">
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M9 3h9a2 2 0 0 1 2 2v11h-2V5H9V3ZM6 7h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/>
-              </svg>
-              Copy prompt
-            </button>
-          </div>
-          <p id="mkSharedPrompt" class="mk-prompt__text" lang="hi" data-shared-prompt>Loading the shared recipe…</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tags -->
-    <section id="tags" class="mk-section mk-section--alt" aria-labelledby="tags-title">
-      <div class="container">
-        <div class="mk-section__head">
-          <h2 id="tags-title" class="mk-h2">Hashtags</h2>
-          <p class="mk-section__sub">Use these in the description (no emojis).</p>
-        </div>
-        <ul class="mk-tags">
-          <li>#Milky</li>
-          <li>#YouTubeShorts</li>
-          <li>#FunnyDog</li>
-          <li>#CuteDog</li>
-          <li>#PetLife</li>
-          <li>#IndianFamilyHumor</li>
-          <li>#DogShorts</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer class="mk-footer">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
-      <p class="mb-0">Milky Shorts · @chamanrastogi</p>
-      <a class="mk-footer__link" href="https://www.youtube.com/@chamanrastogi" target="_blank" rel="noopener">youtube.com/@chamanrastogi</a>
-    </div>
-  </footer>
-
-  <script src="stories-data.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="milky_1000_full_youtube_shorts_scripts.js"></script>
   <script>
   (function () {
     'use strict';
-
-    function num(v, d) { return typeof v === 'number' && v > 0 ? v : d; }
-
-    var DATA  = window.MILKY_DATA || { ideas: [], format: {} };
-    var IDEAS = Array.isArray(DATA.ideas) ? DATA.ideas : [];
-    var FMT   = DATA.format || {};
-    var SCENE_DUR = num(FMT.scene_duration_seconds, 10);
-
-    var gridEl    = document.getElementById('mkGrid');
-    var filtersEl = document.getElementById('mkFilters');
-    var resultsEl = document.getElementById('mkResults');
-    var emptyEl   = document.getElementById('mkEmpty');
-    var searchEl  = document.getElementById('mkSearch');
-    var totalEl   = document.getElementById('mkTotal');
-    var wallEl    = document.getElementById('mkWall');
-
-    var state = { cat: 'all', query: '' };
-
-    function esc(s) {
-      return String(s == null ? '' : s)
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    var PAGE_SIZE = 24, ideas = [], state = { view: 'today', query: '', category: 'all', status: 'all', page: 1, queue: read('milky-daily-queue'), saved: read('milky-saved-ideas'), statuses: readObj('milky-idea-status'), notes: readObj('milky-idea-notes'), opener: null };
+    var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+    function read(key) { try { var v = JSON.parse(localStorage.getItem(key) || '[]'); return Array.isArray(v) ? v.map(Number).filter(Boolean) : []; } catch (_) { return []; } }
+    function readObj(key) { try { var v = JSON.parse(localStorage.getItem(key) || '{}'); return v && typeof v === 'object' && !Array.isArray(v) ? v : {}; } catch (_) { return {}; } }
+    function save(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {} }
+    function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+    function statusOf(id) { var idea = getIdea(id); return state.statuses[id] || (idea && idea.status === 'script_ready' ? 'selected' : 'idea'); }
+    function isSaved(id) { return state.saved.indexOf(Number(id)) !== -1; }
+    function getIdea(id) { return ideas.find(function (x) { return Number(x.id) === Number(id); }); }
+    function storyIdea(idea) { return idea.story_idea || (idea.scenes && idea.scenes[0] && idea.scenes[0].visual) || 'Three-scene Hindi comedy Short starring Milky.'; }
+    function punchline(idea) { return idea.punchline || (idea.scenes && idea.scenes[idea.scenes.length - 1] && (idea.scenes[idea.scenes.length - 1].screen_text || idea.scenes[idea.scenes.length - 1].visual)) || 'End on Milky’s reaction.'; }
+    function hashtags(idea) { var tags = ['#Milky', '#YouTubeShorts', '#HindiComedy', '#DogShorts']; (idea.category || '').split(/[^A-Za-z0-9]+/).filter(Boolean).forEach(function (word) { tags.push('#' + word); }); (idea.characters || []).forEach(function (character) { var clean = String(character).replace(/[^A-Za-z0-9]/g, ''); if (clean && clean.toLowerCase() !== 'milky') tags.push('#' + clean); }); return tags.filter(function (tag, index, all) { return all.indexOf(tag) === index; }).join(' '); }
+    function sceneText(idea, scene, index) { var lines = ['Scene ' + (index + 1) + ' (' + (scene.time || ((index * 10) + '–' + ((index + 1) * 10) + ' सेकंड')) + '): ' + (scene.heading || 'मिल्की की शरारत'), '', 'विजुअल: ' + (scene.visual || '')]; (scene.dialogues || []).forEach(function (line) { lines.push('डायलॉग — ' + line.speaker + ': "' + line.line + '"'); }); lines.push('बैकग्राउंड साउंड: ' + (scene.background_sound || ''), 'स्क्रीन टेक्स्ट: "' + (scene.screen_text || '') + '"'); return lines.join('\n'); }
+    function fullScript(idea) { var lines = [idea.title, '', 'कहानी: ' + storyIdea(idea), 'पंचलाइन: ' + punchline(idea), '']; (idea.scenes || []).forEach(function (scene, index) { lines.push(sceneText(idea, scene, index), ''); }); lines.push('वीडियो निर्देश: ' + (idea.video_instructions || '')); lines.push('', 'हैशटैग: ' + hashtags(idea)); return lines.join('\n'); }
+    function copyValue(text, button, label) { var old = button.textContent, done = function (result) { button.textContent = result; button.disabled = true; setTimeout(function () { button.textContent = old; button.disabled = false; }, 1400); }; if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { done(label || 'Copied'); }, function () { done('Copy failed'); }); else { var area = document.createElement('textarea'); area.value = text; document.body.appendChild(area); area.select(); document.execCommand('copy'); area.remove(); done(label || 'Copied'); } }
+    function copyScript(id, button) { copyValue(fullScript(getIdea(id)), button, 'Copied'); }
+    function downloadScript(id) { var idea = getIdea(id), blob = new Blob([fullScript(idea)], { type: 'text/plain;charset=utf-8' }), link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'milky-script-' + String(id).padStart(4, '0') + '.txt'; link.click(); URL.revokeObjectURL(link.href); }
+    function sceneMarkup(idea) { return '<div class="scene-list">' + (idea.scenes || []).map(function (scene, index) { return '<article class="scene-card"><div class="scene-card__head"><span>SCENE 0' + (index + 1) + '</span><b>' + esc(scene.time || ((index * 10) + '–' + ((index + 1) * 10) + ' सेकंड')) + '</b></div><h3 lang="hi">' + esc(scene.heading || 'मिल्की की शरारत') + '</h3><p class="scene-label">विजुअल</p><p lang="hi">' + esc(scene.visual) + '</p><div class="scene-dialogue">' + (scene.dialogues || []).map(function (line) { return '<p lang="hi"><b>' + esc(line.speaker) + ':</b> ' + esc(line.line) + '</p>'; }).join('') + '</div><p class="scene-label">बैकग्राउंड साउंड</p><p lang="hi">' + esc(scene.background_sound) + '</p><p class="scene-label">स्क्रीन टेक्स्ट</p><p lang="hi">' + esc(scene.screen_text) + '</p><button class="scene-copy" data-copy-scene="' + idea.id + '" data-scene-index="' + index + '" type="button">Copy Scene 0' + (index + 1) + '</button></article>'; }).join('') + '</div><div class="drawer-block"><span class="drawer-label">Video instructions</span><p class="video-instructions" lang="hi">' + esc(idea.video_instructions || '') + '</p><div class="drawer-tools"><button class="secondary-button" data-copy-instructions="' + idea.id + '" type="button">Copy video instructions</button><button class="secondary-button" data-download-script="' + idea.id + '" type="button">Download .txt</button></div></div><div class="drawer-block hashtag-block"><span class="drawer-label">Hashtags</span><p class="hashtag-line">' + esc(hashtags(idea)) + '</p><div class="drawer-tools"><button class="secondary-button" data-copy-tags="' + idea.id + '" type="button">Copy hashtags</button><button class="secondary-button copy-drawer" data-copy-script="' + idea.id + '" type="button">Copy full script + tags</button></div></div>'; }
+    function setView(view) { state.view = view; state.page = 1; $$('.nav-item,.mobile-nav button').forEach(function (b) { b.classList.toggle('is-active', b.getAttribute('data-view') === view); }); var titles = { today: ['Plan today’s stories', 'Choose the ideas that deserve a shoot.'], ideas: ['Explore the idea bank', '1,000 premises waiting for a Milky twist.'], saved: ['Saved for later', 'Your shortlist of stories worth revisiting.'], published: ['Published stories', 'Everything that has made it out into the world.'] }; $('#pageTitle').innerHTML = titles[view][0] + '<span>.</span>'; $('#pageSubtitle').textContent = titles[view][1]; render(); }
+    function matches(idea) { var q = state.query.toLowerCase().trim(), hay = [idea.title, idea.category, storyIdea(idea), punchline(idea), idea.video_instructions, (idea.characters || []).join(' ')].concat((idea.scenes || []).map(function (scene) { return [scene.heading, scene.visual, scene.screen_text, scene.background_sound, (scene.dialogues || []).map(function (line) { return line.speaker + ' ' + line.line; }).join(' ')].join(' '); })).join(' ').toLowerCase(); if (state.view === 'saved' && !isSaved(idea.id)) return false; if (state.view === 'published' && statusOf(idea.id) !== 'published') return false; if (state.status !== 'all' && statusOf(idea.id) !== state.status) return false; if (state.category !== 'all' && idea.category !== state.category) return false; return !q || hay.indexOf(q) > -1; }
+    function visibleIdeas() { return ideas.filter(matches); }
+    function badge(status) { return '<span class="status-badge status-' + status + '">' + esc(status) + '</span>'; }
+    function card(idea) { var saved = isSaved(idea.id), status = statusOf(idea.id), queued = state.queue.indexOf(Number(idea.id)) !== -1; return '<article class="idea-card"><div class="idea-card__top"><span class="category-label">' + esc(idea.category) + '</span><button class="save-button ' + (saved ? 'is-saved' : '') + '" data-save="' + idea.id + '" type="button" aria-pressed="' + saved + '" aria-label="' + (saved ? 'Unsave ' : 'Save ') + esc(idea.title) + '">' + (saved ? '★' : '☆') + '</button></div><button class="idea-card__body" data-open="' + idea.id + '" type="button"><div class="idea-number">' + String(idea.id).padStart(4, '0') + '</div><h3 lang="hi">' + esc(idea.title) + '</h3><p class="premise" lang="hi">' + esc(storyIdea(idea)) + '</p><div class="punchline"><span>Punchline</span><p lang="hi">' + esc(punchline(idea)) + '</p></div></button><div class="idea-card__footer">' + badge(status) + '<span>' + (idea.duration_seconds || 30) + ' sec · ' + (idea.scene_count || 3) + ' shots</span><button class="quick-add ' + (queued ? 'is-queued' : '') + '" data-queue="' + idea.id + '" type="button">' + (queued ? 'In today' : '+ Add to today') + '</button><button class="quick-copy" data-copy-script="' + idea.id + '" type="button">Copy script</button></div></article>'; }
+    function queueCard(id, index) { var idea = getIdea(id); if (!idea) return ''; return '<article class="queue-card"><div class="queue-card__number">0' + (index + 1) + '</div><div class="queue-card__copy"><span>' + esc(idea.category) + '</span><h3 lang="hi">' + esc(idea.title) + '</h3><small>' + badge(statusOf(idea.id)) + '</small></div><button class="remove-queue" data-remove-queue="' + idea.id + '" type="button" aria-label="Remove ' + esc(idea.title) + '">×</button></article>'; }
+    function renderQueue() { var el = $('#queue'); if (!state.queue.length) { el.innerHTML = '<div class="queue-empty"><div class="queue-empty__icon">+</div><div><h3>Your lineup is empty</h3><p>Add up to three ideas you want to shoot today.</p></div><button class="secondary-button" data-view="ideas" type="button">Browse ideas</button></div>'; } else { el.innerHTML = state.queue.map(queueCard).join('') + (state.queue.length < 3 ? '<button class="queue-add-slot" data-view="ideas" type="button"><span>+</span> Add another slot</button>' : ''); } $('#queueCount').textContent = state.queue.length + ' / 3 slots'; $('#navTodayCount').textContent = state.queue.length; }
+    function renderStats() { var published = ideas.filter(function (x) { return statusOf(x.id) === 'published'; }).length, progress = ideas.length ? Math.round(published / ideas.length * 100) : 0; $('#navSavedCount').textContent = state.saved.length; $('#navPublishedCount').textContent = published; $('#statSaved').textContent = state.saved.length; $('#statPublished').textContent = published; $('#statProgress').textContent = progress + '%'; $('#progressBar').style.width = progress + '%'; }
+    function renderGrid() { var list = visibleIdeas(), start = (state.page - 1) * PAGE_SIZE, pageItems = list.slice(start, start + PAGE_SIZE); $('#ideaGrid').innerHTML = pageItems.map(card).join(''); $('#emptyState').hidden = list.length !== 0; $('#resultCount').textContent = list.length + ' ideas'; $('#pagination').innerHTML = pagination(list.length); }
+    function pagination(total) { var pages = Math.max(1, Math.ceil(total / PAGE_SIZE)), current = Math.min(state.page, pages), html = '<button class="page-arrow" data-page="' + Math.max(1, current - 1) + '" ' + (current === 1 ? 'disabled' : '') + ' aria-label="Previous page">‹</button>'; var from = Math.max(1, current - 2), to = Math.min(pages, from + 4); if (to - from < 4) from = Math.max(1, to - 4); for (var i = from; i <= to; i++) html += '<button class="page-number ' + (i === current ? 'is-current' : '') + '" data-page="' + i + '" aria-label="Page ' + i + '" aria-current="' + (i === current ? 'page' : 'false') + '">' + i + '</button>'; html += '<span class="page-total">of ' + pages + '</span><button class="page-arrow" data-page="' + Math.min(pages, current + 1) + '" ' + (current === pages ? 'disabled' : '') + ' aria-label="Next page">›</button>'; return html; }
+    function render() { renderQueue(); renderStats(); renderGrid(); }
+    function populateCategories() { var cats = {}; ideas.forEach(function (x) { cats[x.category] = (cats[x.category] || 0) + 1; }); $('#categoryFilter').innerHTML = '<option value="all">All categories</option>' + Object.keys(cats).sort().map(function (c) { return '<option value="' + esc(c) + '">' + esc(c) + ' (' + cats[c] + ')</option>'; }).join(''); }
+    function toggleSave(id) { id = Number(id); state.saved = isSaved(id) ? state.saved.filter(function (x) { return x !== id; }) : state.saved.concat(id); save('milky-saved-ideas', state.saved); toast(isSaved(id) ? 'Saved to your shortlist' : 'Removed from saved'); render(); }
+    function toggleQueue(id) { id = Number(id); if (state.queue.indexOf(id) > -1) { state.queue = state.queue.filter(function (x) { return x !== id; }); toast('Removed from today’s lineup'); } else if (state.queue.length < 3) { state.queue.push(id); if (statusOf(id) === 'idea') { state.statuses[id] = 'selected'; save('milky-idea-status', state.statuses); } toast('Added to today’s lineup'); } else { toast('Your daily lineup has 3 slots'); } save('milky-daily-queue', state.queue); render(); }
+    function openDrawer(id, opener) {
+      var idea = getIdea(id); if (!idea) return;
+      state.opener = opener || document.activeElement;
+      var status = statusOf(id), saved = isSaved(id), queued = state.queue.indexOf(Number(id)) > -1;
+      $('#drawerContent').innerHTML = '<span class="category-label">' + esc(idea.category) + '</span><h2 id="drawerTitle" lang="hi">' + esc(idea.title) + '</h2><p class="drawer-meta">Script #' + String(idea.id).padStart(4, '0') + ' · ' + idea.duration_seconds + ' sec · ' + idea.scene_count + ' shots</p><div class="drawer-block"><span class="drawer-label">Story setup</span><p lang="hi">' + esc(storyIdea(idea)) + '</p></div><div class="drawer-block drawer-punchline"><span class="drawer-label">Punchline</span><p lang="hi">' + esc(punchline(idea)) + '</p></div>' + sceneMarkup(idea) + '<div class="drawer-block"><span class="drawer-label">Characters</span><div class="character-list">' + (idea.characters || []).map(function (c) { return '<span>' + esc(c) + '</span>'; }).join('') + '</div></div><label class="drawer-label" for="ideaStatus">Production status</label><select id="ideaStatus" class="drawer-select"><option value="idea" ' + (status === 'idea' ? 'selected' : '') + '>Idea</option><option value="selected" ' + (status === 'selected' ? 'selected' : '') + '>Selected</option><option value="scripting" ' + (status === 'scripting' ? 'selected' : '') + '>Scripting</option><option value="filmed" ' + (status === 'filmed' ? 'selected' : '') + '>Filmed</option><option value="published" ' + (status === 'published' ? 'selected' : '') + '>Published</option></select><label class="drawer-label" for="ideaNotes">Creator notes</label><textarea id="ideaNotes" class="notes-input" placeholder="What should Milky do in this one?">' + esc(state.notes[id] || '') + '</textarea><div class="drawer-actions"><button class="primary-button" data-drawer-queue="' + id + '">' + (queued ? 'Remove from today' : 'Add to today') + '</button><button class="secondary-button" data-drawer-save="' + id + '">' + (saved ? '★ Saved' : '☆ Save idea') + '</button></div>';
+      $('#drawer').hidden = false; document.body.classList.add('drawer-open'); $('#drawer').querySelector('.drawer').focus();
+      $('#ideaStatus').addEventListener('change', function () { state.statuses[id] = this.value; save('milky-idea-status', state.statuses); renderStats(); toast('Status updated'); });
+      $('#ideaNotes').addEventListener('input', function () { state.notes[id] = this.value; save('milky-idea-notes', state.notes); });
     }
-    function shotTime(i) {
-      var a = i * SCENE_DUR, b = a + SCENE_DUR;
-      return a + '–' + b + 's';
-    }
-
-    // ---- The 9:16 "shot frame" (the archive's repeating unit) --------------
-    // A real dog photo stands in for the shot; if it fails the gradient shows.
-    function frameImage(seed, w, h) {
-      return 'https://loremflickr.com/' + w + '/' + h + '/dog,puppy?lock=' + (seed + 1);
-    }
-    function frameHTML(scene, i, label, seed) {
-      var cap = scene && scene.screen_text ? scene.screen_text : '';
-      return '<span class="mk-frame" role="img" aria-label="' + esc(label) + '">' +
-               '<span class="mk-frame__bar">' +
-                 '<span class="mk-frame__no">Shot ' + (i + 1) + '</span>' +
-                 '<span class="mk-frame__tc">' + shotTime(i) + '</span>' +
-               '</span>' +
-               '<span class="mk-frame__stage">' +
-                 '<img class="mk-frame__img" src="' + frameImage(seed, 480, 854) + '" alt="" ' +
-                     'loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' +
-                 '<span class="mk-frame__caption" lang="hi">' + esc(cap) + '</span>' +
-               '</span>' +
-             '</span>';
-    }
-
-    // A shot as plain text, for the per-shot "Copy shot" button
-    function shotText(idea, scene, i) {
-      var lines = [];
-      lines.push(idea.title + ' - Shot ' + (i + 1) + ' (' + shotTime(i) + ')');
-      lines.push('');
-      lines.push('On-screen text: ' + (scene.screen_text || ''));
-      lines.push('Visual: ' + (scene.visual || ''));
-      lines.push('Dialogue:');
-      (scene.dialogues || []).forEach(function (d) { lines.push('  ' + d.speaker + ': ' + d.line); });
-      lines.push('Sound: ' + (scene.background_sound || ''));
-      return lines.join('\n');
-    }
-
-    // ---- Story card --------------------------------------------------------
-    function sceneHTML(scene, i, story) {
-      var seed = story.id * 3 + i;
-      var shotId = 'mk-shot-' + story.id + '-' + (i + 1);
-      var out = '<div class="mk-shot">';
-      out += '<div class="mk-shot__frame">' +
-               frameHTML(scene, i, 'Shot ' + (i + 1) + ' of ' + story.title + ': ' + scene.screen_text, seed) +
-             '</div>';
-      out += '<div class="mk-shot__body">';
-      out += '<div class="mk-shot__head">';
-      out += '<h4 class="mk-shot__title">Shot ' + (i + 1) + ' <span class="mk-shot__tc">· ' + shotTime(i) + '</span></h4>';
-      out += '<button class="btn mk-btn mk-btn--ghost mk-copy mk-copy--sm" type="button" data-copy="' + shotId + '">Copy shot</button>';
-      out += '</div>';
-      out += '<pre class="mk-copytext" id="' + shotId + '" hidden>' + esc(shotText(story, scene, i)) + '</pre>';
-      out += '<p class="mk-label">Visual</p>';
-      out += '<p class="mk-shot__visual" lang="hi">' + esc(scene.visual) + '</p>';
-      out += '<p class="mk-label">Dialogue</p>';
-      out += '<ul class="mk-lines">';
-      (scene.dialogues || []).forEach(function (d) {
-        out += '<li><span class="mk-who" lang="hi">' + esc(d.speaker) + '</span>' +
-                     '<span class="mk-say" lang="hi">' + esc(d.line) + '</span></li>';
-      });
-      out += '</ul>';
-      out += '<p class="mk-label">Sound</p>';
-      out += '<p class="mk-sfx" lang="hi">' + esc(scene.background_sound) + '</p>';
-      out += '</div></div>';
-      return out;
-    }
-
-    function storyHTML(idea) {
-      var scenes = idea.scenes || [];
-      var s0 = scenes[0] || { screen_text: '' };
-      var chars = (idea.characters || []).join(', ');
-      var id = idea.id;
-
-      var out = '<article class="mk-story" data-id="' + id + '">';
-      out += '<button class="mk-story__summary" type="button" aria-expanded="false" aria-controls="mk-panel-' + id + '">';
-      out += frameHTML(s0, 0, 'Story frame for ' + idea.title + ': ' + s0.screen_text, id * 3);
-      out += '<span class="mk-story__info">';
-      out += '<span class="mk-chip">' + esc(idea.category) + '</span>';
-      out += '<span class="mk-story__title" lang="hi">' + esc(idea.title) + '</span>';
-      out += '<span class="mk-story__meta">' + (idea.scene_count || scenes.length || 3) + ' shots · ' +
-               (idea.duration_seconds || 30) + 's</span>';
-      out += '<span class="mk-story__chars">' + esc(chars) + '</span>';
-      out += '</span>';
-      out += '<span class="mk-story__cue">' +
-               '<span class="mk-cue-open">Open story</span>' +
-               '<span class="mk-cue-close">Close story</span>' +
-             '</span>';
-      out += '</button>';
-
-      out += '<div class="mk-story__panel" id="mk-panel-' + id + '" hidden>';
-      out += '<div class="mk-scenes">';
-      scenes.forEach(function (sc, i) { out += sceneHTML(sc, i, idea); });
-      out += '</div>';
-      if (idea.video_instructions) {
-        out += '<div class="mk-story__prompt">';
-        out += '<div class="mk-story__prompt-head">';
-        out += '<p class="mk-label">AI video prompt</p>';
-        out += '<button class="btn mk-btn mk-btn--ghost mk-copy" type="button" data-copy="mk-prompt-' + id + '">Copy prompt</button>';
-        out += '</div>';
-        out += '<p class="mk-prompt__text" id="mk-prompt-' + id + '" lang="hi">' + esc(idea.video_instructions) + '</p>';
-        out += '</div>';
-      }
-      out += '</div>';
-      out += '</article>';
-      return out;
-    }
-
-    // ---- Filters -----------------------------------------------------------
-    function renderFilters() {
-      var counts = {};
-      IDEAS.forEach(function (it) { counts[it.category] = (counts[it.category] || 0) + 1; });
-      var cats = Object.keys(counts).sort(function (a, b) {
-        return counts[b] - counts[a] || a.localeCompare(b);
-      });
-      var html = chip('all', 'All', IDEAS.length, true);
-      cats.forEach(function (c) { html += chip(c, c, counts[c], false); });
-      filtersEl.innerHTML = html;
-    }
-    function chip(value, label, n, active) {
-      return '<button class="mk-fchip' + (active ? ' is-active' : '') + '" type="button" ' +
-             'data-cat="' + esc(value) + '" aria-pressed="' + (active ? 'true' : 'false') + '">' +
-             esc(label) + ' <span class="mk-fchip__n">' + n + '</span></button>';
-    }
-
-    // ---- Apply search + category filter ------------------------------------
-    function apply() {
-      var q = state.query.trim().toLowerCase();
-      var html = '';
-      var shown = 0;
-
-      IDEAS.forEach(function (it) {
-        if (state.cat !== 'all' && it.category !== state.cat) return;
-        if (q) {
-          var hay = (it.title + ' ' + (it.characters || []).join(' ') + ' ' + it.category).toLowerCase();
-          if (hay.indexOf(q) === -1) return;
-        }
-        html += storyHTML(it);
-        shown++;
-      });
-
-      gridEl.innerHTML = html;
-      emptyEl.hidden = shown !== 0;
-
-      var noun = shown === 1 ? 'story' : 'stories';
-      resultsEl.textContent = 'Showing ' + shown + ' of ' + IDEAS.length + ' ' + noun +
-        (state.cat === 'all' ? '' : ' in ' + state.cat) + (q ? ' matching “' + state.query.trim() + '”' : '') + '.';
-    }
-
-    // ---- Hero contact sheet -------------------------------------------------
-    function renderWall() {
-      var picks = IDEAS.slice(0, 14);
-      function row(picks, dir) {
-        var items = picks.map(function (it) {
-          var s0 = (it.scenes && it.scenes[0]) || { screen_text: '' };
-          return '<span class="mk-mini">' +
-                   '<img class="mk-mini__img" src="' + frameImage(it.id, 240, 427) + '" alt="" ' +
-                       'loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' +
-                   '<span class="mk-mini__cap" lang="hi">' + esc(s0.screen_text) + '</span>' +
-                 '</span>';
-        }).join('');
-        return '<div class="mk-wall__row ' + dir + '"><div class="mk-wall__track">' + items + items + '</div></div>';
-      }
-      wallEl.innerHTML = row(picks.slice(0, 7), 'is-left') + row(picks.slice(7, 14), 'is-right');
-    }
-
-    // ---- Shared prompt ------------------------------------------------------
-    function renderSharedPrompt() {
-      var el = document.querySelector('[data-shared-prompt]');
-      if (!el) return;
-      var f = FMT;
-      var recipe = [
-        'Vertical 9:16 (' + (f.aspect_ratio || '9:16') + '), ' + (f.duration_seconds || 30) + '-second YouTube Short,',
-        (f.scene_count || 3) + ' shots of ' + (f.scene_duration_seconds || 10) + ' seconds each.',
-        (f.style || 'Hindi family comedy') + '. Realistic cinematic look, natural Hindi lip-sync,',
-        'expressive reactions, one light-flash opener, Hindi on-screen text in every shot,',
-        'Hindi cinematic comedy background sound. No emojis.'
-      ].join(' ');
-      var first = IDEAS[0] && IDEAS[0].video_instructions ? IDEAS[0].video_instructions : '';
-      el.textContent = recipe + (first ? ' ' + first : '');
-    }
-
-    // ---- Copy + disclosure + filter events ---------------------------------
-    document.addEventListener('click', function (e) {
-      var copy = e.target.closest('[data-copy]');
-      if (copy) {
-        var target = document.getElementById(copy.getAttribute('data-copy'));
-        if (!target) return;
-        var text = target.textContent.trim();
-        var label = copy.textContent;
-        var finish = function (msg) {
-          copy.textContent = msg;
-          copy.disabled = true;
-          window.setTimeout(function () { copy.textContent = label; copy.disabled = false; }, 1800);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(function () { finish('Copied'); },
-                                                    function () { finish('Copy failed'); });
-        } else {
-          finish('Copied');
-        }
-        return;
-      }
-
-      var fchip = e.target.closest('.mk-fchip');
-      if (fchip) {
-        state.cat = fchip.getAttribute('data-cat');
-        Array.prototype.forEach.call(filtersEl.querySelectorAll('.mk-fchip'), function (b) {
-          var on = b === fchip;
-          b.classList.toggle('is-active', on);
-          b.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
-        apply();
-        return;
-      }
-
-      var clear = e.target.closest('[data-clear]');
-      if (clear) {
-        state.cat = 'all';
-        state.query = '';
-        if (searchEl) searchEl.value = '';
-        Array.prototype.forEach.call(filtersEl.querySelectorAll('.mk-fchip'), function (b) {
-          var on = b.getAttribute('data-cat') === 'all';
-          b.classList.toggle('is-active', on);
-          b.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
-        apply();
-        return;
-      }
-
-      var summary = e.target.closest('.mk-story__summary');
-      if (summary) {
-        var panel = document.getElementById(summary.getAttribute('aria-controls'));
-        var open = summary.getAttribute('aria-expanded') === 'true';
-        summary.setAttribute('aria-expanded', open ? 'false' : 'true');
-        if (panel) panel.hidden = open;
-        var card = summary.closest('.mk-story');
-        if (card) card.classList.toggle('is-open', !open);
-      }
-    });
-
-    if (searchEl) {
-      searchEl.addEventListener('input', function () {
-        state.query = searchEl.value;
-        apply();
-      });
-    }
-
-    // ---- Boot ---------------------------------------------------------------
-    if (totalEl) totalEl.textContent = IDEAS.length + ' stories';
-    renderFilters();
-    renderWall();
-    renderSharedPrompt();
-    apply();
+    function closeDrawer() { $('#drawer').hidden = true; document.body.classList.remove('drawer-open'); if (state.opener && state.opener.focus) state.opener.focus(); state.opener = null; }
+    function toast(message) { var el = $('#toast'); el.textContent = message; el.classList.add('is-visible'); clearTimeout(window.mkToast); window.mkToast = setTimeout(function () { el.classList.remove('is-visible'); }, 1800); }
+    function load() { var data = window.MILKY_FULL_SCRIPTS || {}; ideas = data.scripts || []; if (!ideas.length) { $('#ideaGrid').innerHTML = '<div class="load-error"><h3>Scripts data is missing</h3><p>Keep <code>milky_1000_full_youtube_shorts_scripts.js</code> beside <code>index.html</code>.</p></div>'; return; } $('#statIdeas').textContent = ideas.length.toLocaleString(); populateCategories(); render(); }
+    document.addEventListener('click', function (e) { var view = e.target.closest('[data-view]'); if (view) { setView(view.getAttribute('data-view')); return; } var open = e.target.closest('[data-open]'); if (open) { openDrawer(open.getAttribute('data-open'), open); return; } var saveButton = e.target.closest('[data-save]'); if (saveButton) { e.stopPropagation(); toggleSave(saveButton.getAttribute('data-save')); return; } var queueButton = e.target.closest('[data-queue]'); if (queueButton) { e.stopPropagation(); toggleQueue(queueButton.getAttribute('data-queue')); return; } var remove = e.target.closest('[data-remove-queue]'); if (remove) { toggleQueue(remove.getAttribute('data-remove-queue')); return; } var page = e.target.closest('[data-page]'); if (page && !page.disabled) { state.page = Number(page.getAttribute('data-page')); renderGrid(); window.scrollTo({ top: document.querySelector('.library-section').offsetTop - 80, behavior: 'smooth' }); return; } var close = e.target.closest('[data-close-drawer]'); if (close) { closeDrawer(); return; } var drawerQueue = e.target.closest('[data-drawer-queue]'); if (drawerQueue) { toggleQueue(drawerQueue.getAttribute('data-drawer-queue')); closeDrawer(); return; } var drawerSave = e.target.closest('[data-drawer-save]'); if (drawerSave) { toggleSave(drawerSave.getAttribute('data-drawer-save')); openDrawer(drawerSave.getAttribute('data-drawer-save')); return; } if (e.target.closest('#resetFilters') || e.target.closest('#emptyReset')) { state.query = ''; state.category = 'all'; state.status = 'all'; state.page = 1; $('#searchInput').value = ''; $('#categoryFilter').value = 'all'; $('#statusFilter').value = 'all'; renderGrid(); } if (e.target.closest('#addRandom')) { var available = ideas.filter(function (x) { return state.queue.indexOf(Number(x.id)) < 0; }); if (available.length) toggleQueue(available[Math.floor(Math.random() * available.length)].id); } });
+    document.addEventListener('click', function (e) { var copy = e.target.closest('[data-copy-script]'); if (copy) { e.stopPropagation(); copyScript(copy.getAttribute('data-copy-script'), copy); } });
+    document.addEventListener('click', function (e) { var sceneButton = e.target.closest('[data-copy-scene]'); if (sceneButton) { var idea = getIdea(sceneButton.getAttribute('data-copy-scene')), index = Number(sceneButton.getAttribute('data-scene-index')); copyValue(sceneText(idea, idea.scenes[index], index), sceneButton, 'Scene copied'); return; } var instructions = e.target.closest('[data-copy-instructions]'); if (instructions) { var instructionIdea = getIdea(instructions.getAttribute('data-copy-instructions')); copyValue(instructionIdea.video_instructions || '', instructions, 'Copied'); return; } var tags = e.target.closest('[data-copy-tags]'); if (tags) { copyValue(hashtags(getIdea(tags.getAttribute('data-copy-tags'))), tags, 'Tags copied'); return; } var download = e.target.closest('[data-download-script]'); if (download) { downloadScript(download.getAttribute('data-download-script')); toast('Script downloaded'); } });
+    $('#searchInput').addEventListener('input', function () { state.query = this.value; state.page = 1; renderGrid(); }); $('#categoryFilter').addEventListener('change', function () { state.category = this.value; state.page = 1; renderGrid(); }); $('#statusFilter').addEventListener('change', function () { state.status = this.value; state.page = 1; renderGrid(); }); $('#focusSearch').addEventListener('click', function () { $('#searchInput').focus(); }); document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !$('#drawer').hidden) closeDrawer(); });
+    $('#todayDate').textContent = new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric' }).format(new Date()).toUpperCase();
+    load();
   })();
   </script>
 </body>
